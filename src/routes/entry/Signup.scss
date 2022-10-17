@@ -4,7 +4,7 @@
   justify-content: center;
 
   .signup__container {
-    width: 400px;
+    width: min(400px, 100%);
     padding: 24px;
     background: var(--white);
 
@@ -40,6 +40,27 @@
         color: var(--button-secondary);
         padding: 10px 20px;
       }
+
+      .signup__agreement-container {
+        display: flex;
+
+        input {
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        label {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .signup__hr {
+      margin: 16px 0;
+    }
+
+    .signup__login {
+      text-align: center;
     }
   }
 }
