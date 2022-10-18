@@ -1,0 +1,62 @@
+:root {
+  // make sure the root font-size always this and not depend on browser
+  font-size: 14px;
+
+  // list of colors
+  --white: #ffffff;
+  
+  --button-primary: #5d9cec;
+  --button-secondary: #ffffff;
+  
+  --link-color: #4B89DC;
+  --gray-color: #dedede;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+// make sure `button` and `a` tag to have cursor pointer on hover
+button:hover, a:hover {
+  cursor: pointer !important;
+}
+
+// default classname for button 
+.btn {
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  
+  &.btn-primary {
+    background-color: var(--button-primary);
+    border: 1px solid var(--button-primary);
+    color: var(--button-secondary);
+  }
+}
+
+// default `a` tag css
+a {
+  text-decoration: none;
+  color: var(--link-color);
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    text-decoration: underline !important;
+    color: var(--button-primary);
+  }
+}

@@ -1,0 +1,22 @@
+.horizontalRuleWithText__wrapper {
+  text-align: center;
+  position: relative;
+
+  .horizontalRuleWithText__text {
+    display: flex;
+  }
+
+  .horizontalRuleWithText__text::before, .horizontalRuleWithText__text::after {
+    color: var(--gray-color);
+    content: " ";
+    flex: 1;
+    border-bottom: groove 1px;
+    margin: auto 0.25rem;
+    box-shadow: 0 -1px;
+  }
+
+  .horizontalRuleWithText__text::after {
+    right: 0;
+    left: auto;
+  }
+}

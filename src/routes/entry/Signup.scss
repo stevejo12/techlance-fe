@@ -9,57 +9,38 @@
     background: var(--white);
 
     .signup__headerContainer {
-      // display: flex;
-      // flex-direction: column;
       text-align: center;
+    }
 
-      .signup__title {
-        margin-bottom: 20px;
-      }
+    .signup__horizontalRuleWithText--container {
+      margin: 20px 0;
     }
 
     .signup__inputContainer {
       display: flex;
       flex-direction: column;
-      margin: 0 auto;
 
-      label {
-        font-size: 1.1rem;
-        margin-bottom: 5px;
-      }
-      
-      input {
-        padding: 5px;
+      .MuiInputBase-root {
         margin-bottom: 20px;
-      }
-
-      button {
-        background-color: var(--button-primary);
-        border: 1px solid var(--button-secondary);
-        border-radius: 5px;
-        color: var(--button-secondary);
-        padding: 10px 20px;
       }
 
       .signup__agreement-container {
         display: flex;
+        margin-bottom: 20px;
 
         input {
-          display: inline-block;
+          margin-top: 1px;
           margin-right: 5px;
-        }
-
-        label {
-          font-size: 0.8rem;
         }
       }
     }
 
     .signup__hr {
-      margin: 16px 0;
+      margin: 20px 0;
     }
 
     .signup__login {
+      font-size: 0.9rem;
       text-align: center;
     }
   }
