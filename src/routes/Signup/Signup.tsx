@@ -157,7 +157,7 @@ const Signup = () => {
         </form>
         <hr className="signup__hr" />
         <div className="signup__login">
-          Already have an account? <a href="#!">Log in</a>
+          Already have an account? <a href="/login">Log in</a>
         </div>
       </div>
     </div>

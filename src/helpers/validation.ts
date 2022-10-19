@@ -3,10 +3,10 @@ interface IError {
   password: string;
 }
 
-const errorMessage = <IError>{
+const errorMessage = {
   email: "Please enter an email address",
   password: "Please enter a password"
-};
+} as IError;
 
 const validateIsEmptyString = (key: string, value: string): string => {
   let errorMsg = "";
@@ -18,14 +18,14 @@ const validateIsEmptyString = (key: string, value: string): string => {
   return errorMsg;
 };
 
-const setAllVariablesInObjectToEmptyString = (obj: Object) => {
-  Object.keys(obj).forEach((k) => {
-    if (obj[k] && typeof obj[k] === "object") {
-      return setAllVariablesInObjectToEmptyString(obj[k]);
-    }
-    obj[k] = "";
-  });
-};
+// const setAllVariablesInObjectToEmptyString = (obj: Object) => {
+//   Object.keys(obj).forEach((k) => {
+//     if (obj[k] && typeof obj[k] === "object") {
+//       return setAllVariablesInObjectToEmptyString(obj[k]);
+//     }
+//     obj[k] = "";
+//   });
+// };
 
 const validateEntry = (obj: IError): IError => {
   const errorMsg = JSON.parse(JSON.stringify(errorMessage));
