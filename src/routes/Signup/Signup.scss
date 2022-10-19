@@ -1,0 +1,87 @@
+.signup__page {
+  padding-top: 16px;
+  display: flex;
+  justify-content: center;
+
+  .signup__container {
+    width: min(calc(400px - 48px), 100%);
+    padding: 24px;
+    background: var(--white);
+
+    .signup__headerContainer {
+      text-align: center;
+    }
+
+    .signup__horizontalRuleWithText--container {
+      margin: 20px 0;
+    }
+
+    .signup__formContainer {
+      display: flex;
+      flex-direction: column;
+
+      .signup__input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        min-height: 80px; // space for input + error msg
+        position: relative;
+
+        .signup__input-field {
+
+          &.password {
+            input {
+              padding-right: 34px; // 12px margin + 21px icon + 2px extra
+            }
+          }
+
+          &.error {
+            input {
+              border: var(--error-red);
+            }
+          }
+        }
+        
+        .signup__inputVisibleIcon {
+          position: absolute;
+          right: 12px;
+          top: 16px;
+          cursor: pointer;
+        }
+
+        .signup__error-container {
+          display: flex;
+          align-items: center;
+          color: var(--error-red);
+
+          .MuiSvgIcon-root {
+            margin-right: 8px;
+          }
+        }
+        
+        .MuiInputBase-root {
+          margin-bottom: 5px;
+        }
+      }
+
+      .signup__agreement-container {
+        display: flex;
+        margin-bottom: 20px;
+
+        input {
+          margin-top: 1px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .signup__hr {
+      margin: 20px 0;
+    }
+
+    .signup__login {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+}

@@ -1,6 +1,7 @@
 :root {
   // make sure the root font-size always this and not depend on browser
   font-size: 14px;
+  background-color: rgb(247, 247, 247);
 
   // list of colors
   --white: #ffffff;
@@ -10,6 +11,8 @@
   
   --link-color: #4B89DC;
   --gray-color: #dedede;
+
+  --error-red: #eb3730;
 }
 
 * {
