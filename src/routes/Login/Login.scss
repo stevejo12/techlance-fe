@@ -1,0 +1,87 @@
+.login__page {
+  padding-top: 16px;
+  display: flex;
+  justify-content: center;
+
+  .login__container {
+    width: min(calc(400px - 48px), 100%);
+    padding: 24px;
+    background: var(--white);
+
+    .login__headerContainer {
+      text-align: center;
+    }
+
+    .login__horizontalRuleWithText--container {
+      margin: 20px 0;
+    }
+
+    .login__formContainer {
+      display: flex;
+      flex-direction: column;
+
+      .login__input-container {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        min-height: 80px; // space for input + error msg
+        position: relative;
+
+        .login__input-field {
+
+          &.password {
+            input {
+              padding-right: 34px; // 12px margin + 21px icon + 2px extra
+            }
+          }
+
+          &.error {
+            input {
+              border: var(--error-red);
+            }
+          }
+        }
+        
+        .login__inputVisibleIcon {
+          position: absolute;
+          right: 12px;
+          top: 16px;
+          cursor: pointer;
+        }
+
+        .login__error-container {
+          display: flex;
+          align-items: center;
+          color: var(--error-red);
+
+          .MuiSvgIcon-root {
+            margin-right: 8px;
+          }
+        }
+        
+        .MuiInputBase-root {
+          margin-bottom: 5px;
+        }
+      }
+
+      .login__agreement-container {
+        display: flex;
+        margin-bottom: 20px;
+
+        input {
+          margin-top: 1px;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .login__hr {
+      margin: 20px 0;
+    }
+
+    .login__login {
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  }
+}

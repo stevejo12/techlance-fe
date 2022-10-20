@@ -1,0 +1,46 @@
+$height: 80px;
+
+.header__wrapper {
+  width: 100%;
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  height: $height;
+  border-bottom: 1px;
+  border-style: solid;
+  border-color: var(--gray-color);
+
+  .header__menu {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 0 20px;
+    border: 1px solid var(--gray-color);
+    border-top: none;
+    border-bottom: none;
+    height: $height;
+    align-items: center;
+
+    .header__menu-container {
+      display: flex;
+
+      .MuiTypography-root {
+        margin: 0 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .header__logo-container {
+    padding: 0 10px;
+
+    .header__logo {
+      width: 100px;
+    }
+  }
+
+  .header__post {
+    padding: 0 10px;
+  }
+}
