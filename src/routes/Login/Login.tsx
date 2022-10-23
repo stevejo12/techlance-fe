@@ -18,7 +18,6 @@ const Login = () => {
     email: "",
     password: ""
   });
-  const [hasAgreed, setHasAgreed] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<IForm>({
     email: "",
@@ -51,7 +50,7 @@ const Login = () => {
     setErrorMessage(validateEntry(formData));
     const isEmpty = Object.values(errorMessage).every((x) => x === "");
 
-    if (isEmpty && hasAgreed) {
+    if (isEmpty) {
       // continue the process
       console.log("All Data are filled");
     } else {
@@ -128,26 +127,6 @@ const Login = () => {
                 </span>
               </div>
             )}
-          </div>
-          <div className="login__agreement-container">
-            <input
-              type="checkbox"
-              name="agreement"
-              id="agreement"
-              checked={hasAgreed}
-              onChange={(e) => setHasAgreed(!hasAgreed)}
-            />
-            <label>
-              I agree to the TechLance{" "}
-              <a href="#!" className="underline">
-                User Agreement
-              </a>
-              {" and "}
-              <a href="#!" className="underline">
-                Privacy Policy
-              </a>
-              .
-            </label>
           </div>
           <button className="btn btn-primary" type="submit">
             Login

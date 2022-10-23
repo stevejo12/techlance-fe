@@ -7,6 +7,8 @@ import Logo from "../../assets/techlance-logo.jpg";
 import HorizontalRuleWithText from "../../components/HorizontalRuleWithText/HorizontalRuleWithText";
 import "./Signup.scss";
 import { validateEntry, validateIsEmptyString } from "../../helpers/validation";
+import axios from "../../axios";
+import IUserData from "../../types/user.type";
 
 interface IForm {
   email: string;
@@ -18,8 +20,6 @@ const Signup = () => {
     email: "",
     password: ""
   });
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [hasAgreed, setHasAgreed] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState<IForm>({
@@ -54,8 +54,20 @@ const Signup = () => {
     const isEmpty = Object.values(errorMessage).every((x) => x === "");
 
     if (isEmpty && hasAgreed) {
+      const data: IUserData = {
+        email: formData.email,
+        password: formData.password
+      } 
       // continue the process
       console.log("All Data are filled");
+      axios
+        .post<IUserData>("/user/register", data)
+        .then((res: any) => {
+          console.log(res.data);
+        })
+        .catch((err: Error) => {
+          console.error(err);
+        })
     } else {
       console.log("Some or All Data are not filled");
     }
