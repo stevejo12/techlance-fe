@@ -4,6 +4,8 @@ import Logo from "../../assets/techlance-logo.jpg";
 
 import "./Header.scss";
 
+// less than 755px => go hamburger
+
 const Header = () => {
   return (
     <div className="header__wrapper">

@@ -10,6 +10,7 @@ const Home = () => {
       <Link to="signup">Signup</Link>
       {"||"}
       <Link to="login">Login</Link>
+      <Link to="search">Search</Link>
     </>
   );
 };
