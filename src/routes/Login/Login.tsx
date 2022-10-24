@@ -6,20 +6,17 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import Logo from "../../assets/techlance-logo.jpg";
 import HorizontalRuleWithText from "../../components/HorizontalRuleWithText/HorizontalRuleWithText";
 import "./Login.scss";
+import { IUserData, IUserDataErrorMessage } from "../../types/user.type";
 import { validateEntry, validateIsEmptyString } from "../../helpers/validation";
-
-interface IForm {
-  email: string;
-  password: string;
-}
+import axios from "../../axios";
 
 const Login = () => {
-  const [formData, setFormData] = useState<IForm>({
+  const [formData, setFormData] = useState<IUserData>({
     email: "",
     password: ""
   });
   const [showPassword, setShowPassword] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<IForm>({
+  const [errorMessage, setErrorMessage] = useState<IUserDataErrorMessage>({
     email: "",
     password: ""
   });
@@ -51,8 +48,16 @@ const Login = () => {
     const isEmpty = Object.values(errorMessage).every((x) => x === "");
 
     if (isEmpty) {
-      // continue the process
-      console.log("All Data are filled");
+      // TO DO: CHECK IF LOGIN WORKS
+      // (SHOULD BE WORKING)
+      axios
+        .post("/user/login", formData)
+        .then((res: any) => {
+          console.log("data response:", res.data);
+        })
+        .catch((err: Error) => {
+          console.error("err: ", err);
+        });
     } else {
       console.log("Some or All Data are not filled");
     }
