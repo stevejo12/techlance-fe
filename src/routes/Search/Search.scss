@@ -1,0 +1,89 @@
+.search {
+  width: 760px;
+  background-color: var(--white);
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 20px;
+  // border: 1px solid var(--tertiary-color);
+
+  .search__jobList {
+    display: flex;
+    border-bottom: 1px solid var(--tertiary-color);
+
+    &:not(:last-child) {
+      padding-bottom: 10px;
+      margin-bottom: 10px;
+    }
+
+    .search__jobList-logo {
+      margin-right: 20px;
+    }
+
+    .search__jobList-description {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      text-align: left;
+      justify-content: space-around;
+
+      .search__jobList-description-job > * {
+        margin-right: 5px;
+      }
+
+      .search__jobList-description-job-companyName {
+        color: var(--search-primary-color);
+        font-weight: 500;
+      }
+
+      .search__jobList-description-job-new, 
+      .search__jobList-description-job-featured {
+        font-size: 0.85rem;
+        padding: 3px 6px;
+        border-radius: 999px;
+        color: var(--white);
+      }
+
+      .search__jobList-description-job-new {
+        border: 1px solid var(--search-primary-color);
+        background-color: var(--search-primary-color);
+      }
+
+      .search__jobList-description-job-featured {
+        border: 1px solid var(--tertiary-color);
+        background-color: var(--tertiary-color);
+      }
+
+      .search__jobList-description-position {
+        font-size: 1.1rem;
+        color: var(--tertiary-color);
+        font-weight: 500;
+      }
+      
+      .search__jobList-description-listingDetail {
+        font-size: 0.9rem;
+        color: var(--secondary-color);
+      }
+    }
+
+    .search__jobList-tag {
+      display: flex;
+      align-items: center;
+      max-width: 325px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .search__jobList-tag-textContainer {
+        padding: 5px 10px;
+        border-radius: 5px;
+        border: 1px solid var(--search-background-color);
+        background-color: var(--search-background-color);
+        color: var(--search-primary-color);
+        font-weight: 500;
+
+        // &:not(:last-child) {
+        //   margin-right: 20px;
+        // }
+      }
+    }
+  }
+}
