@@ -30,7 +30,9 @@ const Search = () => {
   return (
     <div className="search">
       {jobLists.map((jobList, key) => (
-        <div className="search__jobList" key={key}>
+        <div 
+          className={`search__jobList ${jobList.featured ? "highlight" : ""}`} key={key}
+        >
           <div className="search__jobList-logo">
             <img src={`${jobList.logo.replace("./", "")}`} alt="company-logo" />
           </div>
@@ -62,6 +64,12 @@ const Search = () => {
             </div>
           </div>
           <div className="search__jobList-tag">
+            <span className="search__jobList-tag-textContainer">
+              {jobList.role}
+            </span>
+            <span className="search__jobList-tag-textContainer">
+              {jobList.level}
+            </span>
             {jobList.languages.map((language, key) => (
               <span key={key} className="search__jobList-tag-textContainer">
                 {language}

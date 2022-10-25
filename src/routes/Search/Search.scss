@@ -1,17 +1,19 @@
 .search {
   width: 760px;
-  background-color: var(--white);
   border-radius: 10px;
   margin: 20px auto;
-  padding: 20px;
-  // border: 1px solid var(--tertiary-color);
+  padding-bottom: 10px;
 
   .search__jobList {
     display: flex;
-    border-bottom: 1px solid var(--tertiary-color);
+    background-color: var(--white);
+    padding: 10px;
+
+    &.highlight {
+      border-left: 5px solid var(--search-primary-color);
+    }
 
     &:not(:last-child) {
-      padding-bottom: 10px;
       margin-bottom: 10px;
     }
 
@@ -70,19 +72,16 @@
       align-items: center;
       max-width: 325px;
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: right;
 
       .search__jobList-tag-textContainer {
+        margin-right: 10px;
         padding: 5px 10px;
         border-radius: 5px;
         border: 1px solid var(--search-background-color);
         background-color: var(--search-background-color);
         color: var(--search-primary-color);
         font-weight: 500;
-
-        // &:not(:last-child) {
-        //   margin-right: 20px;
-        // }
       }
     }
   }
