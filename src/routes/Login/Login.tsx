@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -20,6 +21,7 @@ const Login = () => {
     email: "",
     password: ""
   });
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -53,7 +55,17 @@ const Login = () => {
       axios
         .post("/user/login", formData)
         .then((res: any) => {
-          console.log("data response:", res.data);
+          if (res.data) {
+            const token = res.data.data.token || "";
+
+            if (token) {
+              localStorage.setItem("tl-token", token);
+              // TO DO: refactor this reload 
+              // with another way to redirect
+              // after success login
+              window.location.reload();
+            }
+          }
         })
         .catch((err: Error) => {
           console.error("err: ", err);
@@ -62,6 +74,12 @@ const Login = () => {
       console.log("Some or All Data are not filled");
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("tl-token")) {
+      navigate("/");
+    }
+  }, [])
 
   return (
     <div className="login__page">

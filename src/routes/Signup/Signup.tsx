@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextField } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -9,8 +9,10 @@ import "./Signup.scss";
 import { validateEntry, validateIsEmptyString } from "../../helpers/validation";
 import axios from "../../axios";
 import { IUserData, IUserDataErrorMessage } from "../../types/user.type";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<IUserData>({
     email: "",
     password: ""
@@ -61,6 +63,12 @@ const Signup = () => {
       console.log("Some or All Data are not filled");
     }
   };
+
+  useEffect(() => {
+    if (localStorage.getItem("tl-token")) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <div className="signup__page">

@@ -1,12 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Button, Typography } from "@mui/material";
 import Logo from "../../assets/techlance-logo.jpg";
 
 import "./Header.scss";
+import { useNavigate } from "react-router-dom";
 
 // less than 755px => go hamburger
 
 const Header = () => {
+  const [token, setToken] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignOut = () => {
+    localStorage.removeItem("tl-token");
+    setToken("");
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem("tl-token")) {
+      setToken(localStorage.getItem("tl-token") || "");
+    }
+  }, [])
+
   return (
     <div className="header__wrapper">
       {/* logo left */}
@@ -23,8 +38,20 @@ const Header = () => {
           <Typography>learn</Typography>
         </Box>
         <Box className="header__menu-container">
-          <Typography>log in</Typography>
-          <Typography>sign up</Typography>
+          {token ? (
+            <>
+              <Typography onClick={() => handleSignOut()}>sign out</Typography>
+            </>
+          ): (
+            <>
+              <Typography onClick={() => navigate("/login")}>
+                log in
+              </Typography>
+              <Typography onClick={() => navigate("/register")}>
+                sign up
+              </Typography>
+            </>
+          )}
         </Box>
       </div>
       {/* right part */}
