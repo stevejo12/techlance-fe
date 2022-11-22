@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 import Logo from "../../assets/techlance-logo.jpg";
 
 import "./Header.scss";
-import { useNavigate } from "react-router-dom";
 
 // less than 755px => go hamburger
 
@@ -14,13 +14,13 @@ const Header = () => {
   const handleSignOut = () => {
     localStorage.removeItem("tl-token");
     setToken("");
-  }
+  };
 
   useEffect(() => {
     if (localStorage.getItem("tl-token")) {
       setToken(localStorage.getItem("tl-token") || "");
     }
-  }, [])
+  }, []);
 
   return (
     <div className="header__wrapper">
@@ -42,11 +42,9 @@ const Header = () => {
             <>
               <Typography onClick={() => handleSignOut()}>sign out</Typography>
             </>
-          ): (
+          ) : (
             <>
-              <Typography onClick={() => navigate("/login")}>
-                log in
-              </Typography>
+              <Typography onClick={() => navigate("/login")}>log in</Typography>
               <Typography onClick={() => navigate("/register")}>
                 sign up
               </Typography>
