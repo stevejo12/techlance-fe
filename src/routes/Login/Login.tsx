@@ -60,10 +60,7 @@ const Login = () => {
 
             if (token) {
               localStorage.setItem("tl-token", token);
-              // TO DO: refactor this reload 
-              // with another way to redirect
-              // after success login
-              window.location.reload();
+              navigate("/");
             }
           }
         })

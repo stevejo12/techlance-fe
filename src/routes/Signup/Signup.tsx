@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { TextField } from "@mui/material";
+import { Checkbox, FormControlLabel, TextField } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -55,11 +55,17 @@ const Signup = () => {
         .post<IUserData>("/user/register", formData)
         .then((res: any) => {
           console.log(res.data);
+          navigate("/login");
         })
         .catch((err: Error) => {
           console.error(err);
         });
     } else {
+      if (!hasAgreed) {
+        var element = document.querySelector(".signup__agreement-label");
+        element?.classList.add("error");
+      }
+
       console.log("Some or All Data are not filled");
     }
   };
@@ -141,24 +147,35 @@ const Signup = () => {
             )}
           </div>
           <div className="signup__agreement-container">
-            <input
-              type="checkbox"
-              name="agreement"
-              id="agreement"
-              checked={hasAgreed}
-              onChange={(e) => setHasAgreed(!hasAgreed)}
+            <FormControlLabel
+              className={`signup__agreement-label`}
+              value={hasAgreed}
+              control={
+                <Checkbox 
+                  checked={hasAgreed} 
+                  onChange={() => {
+                    if (!hasAgreed) {
+                      var element = document.querySelector(".signup__agreement-label");
+                      element?.classList.remove("error");
+                    }
+                    setHasAgreed(!hasAgreed)}} 
+                />
+              }
+              label={(
+                <label>
+                  I agree to the TechLance{" "}
+                  <a href="#!" className="underline">
+                    User Agreement
+                  </a>
+                  {" and "}
+                  <a href="#!" className="underline">
+                    Privacy Policy
+                  </a>
+                  .
+                </label>
+              )}
+              labelPlacement="end"
             />
-            <label>
-              I agree to the TechLance{" "}
-              <a href="#!" className="underline">
-                User Agreement
-              </a>
-              {" and "}
-              <a href="#!" className="underline">
-                Privacy Policy
-              </a>
-              .
-            </label>
           </div>
           <button className="btn btn-primary" type="submit">
             Sign up

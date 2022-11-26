@@ -68,9 +68,33 @@
         display: flex;
         margin-bottom: 20px;
 
+        .signup__agreement-label {
+          margin: 0;
+          padding: 0;
+
+          .MuiCheckbox-root {
+            padding: 0;
+            margin-right: 5px;
+          }
+
+          &.error {
+            .MuiCheckbox-root {
+              color: var(--error-red);
+            }
+          }
+        }
+
+        
+
         input {
           margin-top: 1px;
           margin-right: 5px;
+          // border: none;
+          // outline: 0.5px solid initial;
+
+          &.error {
+            color: var(--error-red);
+          }
         }
       }
     }
