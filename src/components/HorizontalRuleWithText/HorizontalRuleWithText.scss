@@ -7,7 +7,7 @@
   }
 
   .horizontalRuleWithText__text::before, .horizontalRuleWithText__text::after {
-    color: var(--gray-color);
+    color: var(--border-color);
     content: " ";
     flex: 1;
     border-bottom: groove 1px;

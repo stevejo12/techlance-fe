@@ -1,15 +1,30 @@
 :root {
   // make sure the root font-size always this and not depend on browser
   font-size: 14px;
+  background-color: rgb(247, 247, 247);
+  color: var(--primary-color);
+
+  @media only screen and (max-width: 600px) {
+    font-size:12px;
+  }
 
   // list of colors
   --white: #ffffff;
+
+  --primary-color: hsl(180, 14%, 20%);
+  --secondary-color: hsl(180, 8%, 52%);
+  --tertiary-color: hsl(180, 14%, 20%);
+
+  --search-primary-color: hsl(180, 29%, 50%);
+  --search-background-color: hsl(180, 52%, 96%);
   
   --button-primary: #5d9cec;
   --button-secondary: #ffffff;
   
   --link-color: #4B89DC;
-  --gray-color: #dedede;
+  --border-color: #dedede;
+
+  --error-red: #eb3730;
 }
 
 * {
@@ -59,4 +74,11 @@ a {
     text-decoration: underline !important;
     color: var(--button-primary);
   }
+}
+
+// default font
+.default-headerStyle {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-weight: 400;
 }
